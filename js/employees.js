@@ -1,7 +1,7 @@
-var xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function () {
-  if(xhr.readyState === 4 && xhr.status === 200) {
-    var employees = JSON.parse(xhr.responseText);
+var employeeStatus = new XMLHttpRequest();
+employeeStatus.onreadystatechange = function () {
+  if(employeeStatus.readyState === 4 && employeeStatus.status === 200) {
+    var employees = JSON.parse(employeeStatus.responseText);
     var statusHTML = '<ul class="bulleted">';
     for (var i=0; i<employees.length; i += 1) {
       if (employees[i].inoffice === true) {
@@ -16,5 +16,5 @@ xhr.onreadystatechange = function () {
     document.getElementById('employeeList').innerHTML = statusHTML;
   }
 };
-xhr.open('GET', '../data/employees.json');
-xhr.send();
+employeeStatus.open('GET', '../data/employees.json');
+employeeStatus.send();
